@@ -1,7 +1,8 @@
-from django.views.generic.base import TemplateView
-from django.http import Http404
-
 import random
+
+from django.http import Http404
+from django.views.generic.base import TemplateView
+
 import tours.data as data
 
 
