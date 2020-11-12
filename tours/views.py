@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from django.views.generic.base import TemplateView
 from django.http import Http404
 
@@ -49,8 +48,10 @@ class DepartureView(BaseView):
             raise Http404
         tour_departure_list = list(filter(filter_by_dep, data.tours.items()))
         context['tour_departure_list'] = tour_departure_list
-        context['price_range'] = min(tour_departure_list, key=price_filter_func)[1]['price'], max(tour_departure_list, key=price_filter_func)[1]['price']
-        context['nights_range'] = min(tour_departure_list, key=nights_filter_func)[1]['nights'], max(tour_departure_list, key=nights_filter_func)[1]['nights']
+        context['price_range'] = [min(tour_departure_list, key=price_filter_func)[1]['price'],
+                                  max(tour_departure_list, key=price_filter_func)[1]['price']]
+        context['nights_range'] = [min(tour_departure_list, key=nights_filter_func)[1]['nights'],
+                                   max(tour_departure_list, key=nights_filter_func)[1]['nights']]
         return context
 
 

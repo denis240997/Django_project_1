@@ -18,6 +18,7 @@
                 <div class="card-body">
                   <h5 class="card-title">{{ tour.title }}</h5>
                   <p class="card-text text-truncate">{{ tour.description }}</p>
+                  <p class="">{{ tour.country }}, {{ tour.nights }} ночей, {{ tour.price }}₽ {% for _ in 'x'|rjust:tour.stars %}★{% endfor %}</p>
                   <a href="/tour/{{ id }}/" class="btn btn-sm btn-primary"  data-test="tourlink">Подробнее</a>
                 </div>
             </div>
